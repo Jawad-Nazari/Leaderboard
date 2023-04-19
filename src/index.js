@@ -1,6 +1,11 @@
+import './styles/main.css';
+import UI from './modules/ui.js';
 
-import './style.css';
+document.addEventListener('DOMContentLoaded', UI.displayScores);
 
+document.querySelector('#add-form').addEventListener('submit', (e) => {
+  // prevent default submit
+  e.preventDefault();
 
-
-
+  UI.getNewScore();
+});
