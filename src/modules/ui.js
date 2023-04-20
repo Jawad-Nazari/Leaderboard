@@ -1,10 +1,10 @@
 import Score from './score.js';
 
-const req = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/u7kNvsXmXdu1EufOu2CH/scores/';
+const api = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/u7kNvsXmXdu1EufOu2CH/scores/';
 
 class UI {
   static displayScores = async () => {
-    const scores = await (await fetch(req)).json();
+    const scores = await (await fetch(api)).json();
     scores.result.forEach((score) => UI.addScoreToList(score));
   }
 
@@ -40,7 +40,7 @@ class UI {
   }
 
   static postData = async (user, score) => {
-    const res = await fetch(req,
+    const res = await fetch(api,
       {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
@@ -57,14 +57,6 @@ class UI {
 
   static refreshScores = async () => {
     window.location.reload();
-  };
-
-  static deleteScore = async (user, score) => {
-    const res = await fetch(`${req}/${user}/${score}`, {
-      method: 'DELETE',
-    });
-    const data = await res.json();
-    return data;
   };
 }
 
