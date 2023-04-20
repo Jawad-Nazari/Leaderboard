@@ -23,7 +23,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [Leaderboard:Setup Project ] <a name="about-project"></a>
+# 📖 [Leaderboard: Hitting the API ] <a name="about-project"></a>
 
 ** Leaderboard** is a simple website displays scores submitted by different players. It also allows you to submit your score. All data is preserved thanks to the external Leaderboard API service.
 
@@ -34,6 +34,7 @@
 - CSS
 - JavaScript
 - Webpack
+- Leaderboard API
 
 </a>
 
@@ -45,7 +46,7 @@
 
 - **[Good and Simple Design]**
  **[UX/UI accessibility ]**
- **[Responsive layout]**
+ **[Hitting the Leaderboard API]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -97,7 +98,7 @@ In order to run this project you need:
 ## 🔭 Future Features <a name="future-features"></a>
 
 # **[Feature-1]** 
-- Will hit the API
+- Will be added more style.
 
 # **[Feature-2]** 
 - More options like refresh button will be added 
