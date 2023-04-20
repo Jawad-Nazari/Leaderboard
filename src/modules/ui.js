@@ -1,19 +1,28 @@
 import Score from './score.js';
-import Store from './store.js';
+
+const req = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/u7kNvsXmXdu1EufOu2CH/scores/';
 
 class UI {
-  static displayScores = () => {
-    const scores = Store.getScores();
-    scores.forEach((score) => UI.addScoreToList(score));
+  static displayScores = async () => {
+    const scores = await (await fetch(req)).json();
+    scores.result.forEach((score) => UI.addScoreToList(score));
   }
 
   static getNewScore = () => {
-    const name = document.querySelector('#name').value;
+    const user = document.querySelector('#name').value;
     const score = document.querySelector('#score').value;
-    if (name !== '' && score !== '') {
-      const newScore = new Score(name, score);
+    // valitdate empty form
+    if (user !== '' && score !== '') {
+      // making object of Score class
+      const newScore = new Score(user, score);
+
+      // add Score to UI
       UI.addScoreToList(newScore);
-      Store.addScore(newScore);
+
+      // Add data to API
+      UI.postData(user, score);
+
+      // clear fields
       UI.clearFields();
     }
   }
@@ -21,16 +30,42 @@ class UI {
   static addScoreToList = (score) => {
     const list = document.querySelector('#score-list');
     const li = document.createElement('li');
+
     const span = document.createElement('span');
-    span.innerHTML = `${score.name} : ${score.score}`;
+
+    span.innerHTML = `${score.user} : ${score.score}`;
+
     li.appendChild(span);
     list.appendChild(li);
+  }
+
+  static postData = async (user, score) => {
+    const res = await fetch(req,
+      {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ user, score }),
+      });
+    const data = await res.json();
+    return data.result;
   }
 
   static clearFields = () => {
     document.querySelector('#name').value = '';
     document.querySelector('#score').value = '';
   }
+
+  static refreshScores = async () => {
+    window.location.reload();
+  };
+
+  static deleteScore = async (user, score) => {
+    const res = await fetch(`${req}/${user}/${score}`, {
+      method: 'DELETE',
+    });
+    const data = await res.json();
+    return data;
+  };
 }
 
 export default UI;
