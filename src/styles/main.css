@@ -1,22 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: sans-serif;
+  background-color: bisque;
+  font-family: 'Roboto', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
+  overflow: hidden;
   margin: 0;
+  padding: 20px;
 }
 
 .container {
-  background-color: whitesmoke;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
   padding: 50px 30px;
   text-align: center;
-  width: 55%;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -26,79 +33,86 @@ h1,
 h3 {
   align-self: flex-start;
   margin: 0;
+  opacity: 0.8;
+  letter-spacing: 2px;
 }
 
 .btn {
+  background-color: #4693ec;
+  color: #f4f4f4;
+  border: 0;
+  border-radius: 4px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
   padding: 7px 20px;
   font-size: 10px;
   cursor: pointer;
   align-self: flex-end;
 }
 
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn:focus {
+  outline: 0;
+}
+
 .score-container {
   display: flex;
-  gap: 10%;
-}
-
-.recent-score {
-  width: 100%;
-  display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 40px;
 }
 
-.recent-score-head {
+.score-container .recent-score {
+  min-width: 200px;
+}
+
+.score-container .recent-score .recent-score-head {
   display: flex;
   justify-content: space-between;
+  gap: 30px;
 }
 
-.score-list {
+.score-container .recent-score .score-list {
+  border: 2px solid rgb(10, 53, 172);
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 10px;
   gap: 5px;
-  width: 100%;
-  border: 1px solid black;
 }
 
-.score-list :nth-child(even) {
-  background-color: #b4bad0;
+.score-container .recent-score .score-list :nth-child(even) {
+  background-color: #9eb7e7;
 }
 
-.score-list li {
+.score-container .recent-score .score-list li {
   list-style-type: none;
   width: 100%;
   display: flex;
 }
 
-.add-score {
+.score-container .new-score {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  gap: 20px;
+  min-width: 200px;
 }
 
-.add-score ul {
-  padding: 0;
-  width: 100%;
-}
-
-.add-score ul form {
+.score-container .new-score form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 10px;
 }
 
-form input {
-  display: flex;
+.score-container .new-score form input {
   width: 100%;
 }
 
-.joke {
-  font-size: 30px;
-  letter-spacing: 1px;
-  line-height: 40px;
-  margin: 50px auto;
-  max-width: 600px;
+@media only screen and (min-width: 768px) {
+  .score-container {
+    flex-direction: row;
+  }
 }
