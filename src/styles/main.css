@@ -8,11 +8,9 @@ body {
   background-color: bisque;
   font-family: 'Roboto', sans-serif;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   height: 100vh;
-  overflow: hidden;
   margin: 0;
   padding: 20px;
 }
@@ -21,20 +19,30 @@ body {
   background-color: #f4f4f4;
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
-  padding: 50px 30px;
+  padding: 20px 20px;
   text-align: center;
-  max-width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  width: 100%;
+  max-width: 800px;
 }
 
-h1,
-h3 {
-  align-self: flex-start;
+h1 {
   margin: 0;
   opacity: 0.8;
   letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+h3 {
+  margin: 0;
+  opacity: 0.8;
+  letter-spacing: 2px;
+}
+
+.add-score {
+  align-items: center;
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%;
 }
 
 .btn {
@@ -43,10 +51,10 @@ h3 {
   border: 0;
   border-radius: 4px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
-  padding: 7px 20px;
-  font-size: 10px;
+  padding: 10px 20px;
+  font-size: 14px;
   cursor: pointer;
-  align-self: flex-end;
+  margin-top: 20px;
 }
 
 .btn:active {
@@ -58,22 +66,26 @@ h3 {
 }
 
 .score-container {
+  max-height: 550px;
+  overflow: auto;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 20px;
 }
 
 .score-container .recent-score {
-  min-width: 200px;
+  min-width: 300px;
 }
 
-.score-container .recent-score .recent-score-head {
+.recent-score-head {
   display: flex;
   justify-content: space-between;
-  gap: 30px;
+  align-items: center;
+  padding: 10px;
+
 }
 
-.score-container .recent-score .score-list {
+.score-list {
   border: 2px solid rgb(10, 53, 172);
   border-radius: 5px;
   display: flex;
@@ -100,19 +112,32 @@ h3 {
   min-width: 200px;
 }
 
-.score-container .new-score form {
+form {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  
 }
 
-.score-container .new-score form input {
-  width: 100%;
+input {
+  width: 90%;
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid #8e8c8c;
+  border-radius: 4px;
+  font-size: 16px;
+
 }
 
 @media only screen and (min-width: 768px) {
+
+
   .score-container {
     flex-direction: row;
   }
+
+  /* .score-container .new-score {
+    min-width: 200px;
+  } */
 }
