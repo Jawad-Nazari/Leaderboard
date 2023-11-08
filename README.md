@@ -76,7 +76,11 @@ In order to run this project you need:
 `git clone`
 `https://github.com/Jawad-Nazari/Leaderboard.git`
 
+### Usage
 
+To run the project, execute the following command:
+
+npm start
 
 <!-- AUTHORS -->
 
